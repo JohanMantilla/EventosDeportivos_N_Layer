@@ -22,19 +22,19 @@ La aplicación está estructurada en arquitectura N-Layer, con las siguientes ca
 ## 🛠Instalación 
 1. Ejecuta el script SQL para crear:
 
-* Base de datos: BDD_EventoDeportivo_GR2
+   * Base de datos: BDD_EventoDeportivo_GR2
 
-* Usuario: usr_eventosdeportivos_gr2
+   * Usuario: usr_eventosdeportivos_gr2
 
-* Tablas: TBL_DEPORTE, TBL_LUGAR, TBL_EVENTO, TBL_PARTICIPANTE, TBL_USER
+   * Tablas: TBL_DEPORTE, TBL_LUGAR, TBL_EVENTO, TBL_PARTICIPANTE, TBL_USER
 
-* Vista: VW_EVENTOS_COMPLETO
+   * Vista: VW_EVENTOS_COMPLETO
 
-* Datos de prueba (insertados)
+   * Datos de prueba (insertados)
 
 2. Abre la solución en Visual Studio:
 
-* Asegúrate de configurar la cadena de conexión en Web.config.
+   * Asegúrate de configurar la cadena de conexión en Web.config.
 
 3. Ejecuta el proyecto iniciando en Default.aspx.
 
