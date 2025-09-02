@@ -1,91 +1,119 @@
-## 📅Calendario de Eventos Deportivos 
-Aplicación web desarrollada en ASP.NET (.NET Framework 2.0) que permite a los usuarios consultar eventos deportivos próximos, registrarse, autenticarse y visualizar detalles de cada evento.
+# 📅 Calendario de Eventos Deportivos
 
-## 🧩Estructura del Proyecto 
-La aplicación está estructurada en arquitectura N-Layer, con las siguientes capas:
+Aplicación web desarrollada en ASP.NET (.NET Framework 2.0) que permite a los usuarios consultar eventos deportivos próximos, registrarse, autenticarse y ver detalles de eventos con capacidades de filtrado.
 
-* Entity Layer: Contiene clases como User, EventoDeportivo, y utilitarios (Constants, Hash).
+## 🏗️ Arquitectura
 
-* Data Access Layer: Maneja la interacción con la base de datos SQL Server.
+Esta aplicación sigue un patrón de **arquitectura N-Layer** con clara separación de responsabilidades:
 
-* Business Layer: Procesa la lógica de negocio.
+- **Capa de Entidad** (`EntityLayer.EventosDeportivosEx1`): Modelos del dominio y utilidades
+- **Capa de Acceso a Datos** (`DataAccess.EventosDeportivosEx1`): Interacciones con SQL Server  
+- **Capa de Negocio** (`BusinessLayer.EventosDeportivosEx1`): Lógica de negocio
+- **Capa de Presentación** (`WebAppEventosDeportivosEx1`): Interfaz web
 
-* WebApp: Capa de presentación con páginas como Login.aspx, SignUp.aspx, EventosDeportivos.aspx.
+## 🛠️ Tecnologías Utilizadas
 
-## 🧾Requisitos 
-* ASP.NET (.NET Framework 2.0)
+- **Framework**: ASP.NET Web Forms (.NET Framework 2.0)
+- **Base de Datos**: Microsoft SQL Server
+- **Autenticación**: Forms Authentication con sesiones
+- **Seguridad**: Encriptación SHA1 para contraseñas
+- **Frontend**: HTML, CSS, JavaScript con Font Awesome
 
-* SQL Server (cualquier versión)
+## 📋 Requisitos Previos
 
-* Visual Studio
+- Visual Studio 2015 o superior
+- SQL Server (cualquier versión)
+- .NET Framework 2.0
 
-## 🛠Instalación 
-1. Ejecuta el script SQL para crear:
+## 🚀 Instalación y Configuración
 
-   * Base de datos: BDD_EventoDeportivo_GR2
+### 1. Configuración de Base de Datos
+Ejecute el script SQL (`SQL_EventosDeportivos_JohanMantilla.sql`) para crear:
 
-   * Usuario: usr_eventosdeportivos_gr2
+- **Base de Datos**: `BDD_EventoDeportivo_GR2`
+- **Login**: `usr_eventosdeportivos_gr2` / `Politecnica1`
+- **Tablas**: Deportes, Lugares, Eventos, Participantes, Usuarios
+- **Vista**: `VW_EVENTOS_COMPLETO`
+- **Datos de Muestra**: Eventos y usuarios de prueba
 
-   * Tablas: TBL_DEPORTE, TBL_LUGAR, TBL_EVENTO, TBL_PARTICIPANTE, TBL_USER
+### 2. Configuración de la Aplicación
+1. Abrir `SlnAppEventosDeportivos.sln` en Visual Studio
+2. Verificar la cadena de conexión en `Web.config`
+3. Compilar la solución
+4. Ejecutar la aplicación (F5)
 
-   * Vista: VW_EVENTOS_COMPLETO
+## ⭐ Características Principales
 
-   * Datos de prueba (insertados)
+### 🔐 Autenticación y Autorización
+- **Registro** (`SignUp.aspx`): Crear cuentas con contraseñas encriptadas
+- **Login** (`Login.aspx`): Autenticación segura con sesiones
+- **Control de Acceso**: Redirección automática si no está autenticado
+- **Roles**: Usuarios normales y administradores
 
-2. Abre la solución en Visual Studio:
+### 📊 Gestión de Eventos
+- **Listado** (`EventosDeportivos.aspx`): Eventos próximos en tabla responsiva
+- **Filtrado**: Por tipo de deporte
+- **Detalles**: Información completa de cada evento
 
-   * Asegúrate de configurar la cadena de conexión en Web.config.
+### 🎨 Interfaz de Usuario
+- **Diseño Moderno**: Layout responsivo con animaciones
+- **Tema Deportivo**: Colores y iconos temáticos
+- **Mobile-Friendly**: Adaptativo para móviles
 
-3. Ejecuta el proyecto iniciando en Default.aspx.
+## 📁 Estructura del Proyecto
 
-## 🔐Funcionalidades 
-* Registro de usuarios (SignUp.aspx) con contraseña encriptada (SHA1).
+```
+SlnAppEventosDeportivos/
+├── EntityLayer.EventosDeportivosEx1/     # Modelos
+├── DataAccess.EventosDeportivosEx1/      # Acceso a datos
+├── BusinessLayer.EventosDeportivosEx1/   # Lógica de negocio
+└── WebAppEventosDeportivosEx1/           # Aplicación web
+    ├── Login.aspx
+    ├── SignUp.aspx
+    ├── EventosDeportivos.aspx
+    └── Web.config
+```
 
-* Autenticación (Login.aspx) y control de acceso a EventosDeportivos.aspx.
+## 🗄️ Base de Datos
 
-* Listado de eventos deportivos (filtrable por tipo de deporte).
+### Tablas Principales
+- **TBL_USER**: Usuarios con contraseñas encriptadas
+- **TBL_DEPORTE**: Categorías de deportes
+- **TBL_LUGAR**: Sedes de eventos  
+- **TBL_EVENTO**: Eventos deportivos
+- **TBL_PARTICIPANTE**: Participantes
 
-* Sesión protegida: redirección al login si no está autenticado.
+## 🎯 Uso
 
-* Roles de usuario (admin y normal).
+### Para Usuarios
+1. **Registro**: Crear cuenta en SignUp
+2. **Login**: Ingresar con credenciales
+3. **Explorar**: Ver calendario de eventos
+4. **Filtrar**: Por deporte específico
+5. **Logout**: Cerrar sesión
 
-* Diseño visual moderno con animaciones y estilo deportivo.
+## ⚙️ Configuración
 
-<br></br>
+### Cadena de Conexión
+```xml
+<add name="BDD_EventoDeportivoConnectionString" 
+     connectionString="Data Source=localhost;Initial Catalog=BDD_EventoDeportivo_GR2;User ID=usr_eventosdeportivos_gr2;Password=Politecnica1"/>
+```
 
-## 📅 Sports Events Calendar  
-Web application developed in ASP.NET (.NET Framework 2.0) that allows users to view upcoming sports events, register, authenticate, and see details of each event.
+### Autenticación
+- URL de Login: `Login.aspx`
+- Timeout: 20 minutos
 
-## 🧩 Project Structure  
-The application follows an **N-Layer architecture**, with the following layers:
+## 🧪 Usuarios de Prueba
 
-- **Entity Layer**: Contains classes like `User`, `EventoDeportivo`, and utilities (`Constants`, `Hash`).
-- **Data Access Layer**: Handles interaction with the SQL Server database.
-- **Business Layer**: Processes business logic.
-- **WebApp**: Presentation layer with pages like `Login.aspx`, `SignUp.aspx`, and `EventosDeportivos.aspx`.
+- **Usuario**: `normal` | **Contraseña**: `12345678` | **Rol**: Normal
+- **Usuario**: `Admin` | **Contraseña**: `12345678` | **Rol**: Admin
 
-## 🧾 Requirements  
-- ASP.NET (.NET Framework 2.0)  
-- SQL Server (any version)  
-- Visual Studio  
+## 👨‍💻 Desarrollador
 
-## 🛠 Installation  
-1. Run the SQL script to create:
-   - Database: `BDD_EventoDeportivo_GR2`  
-   - User: `usr_eventosdeportivos_gr2`  
-   - Tables: `TBL_DEPORTE`, `TBL_LUGAR`, `TBL_EVENTO`, `TBL_PARTICIPANTE`, `TBL_USER`  
-   - View: `VW_EVENTOS_COMPLETO`  
-   - Sample data (inserted)
+**Johan Roberto Mantilla Pancho**  
+*Ingeniería en Software - Escuela Politécnica Nacional*
 
-2. Open the solution in Visual Studio:
-   - Make sure to configure the connection string in `Web.config`.
+---
 
-3. Run the project starting from `Default.aspx`.
-
-## 🔐 Features  
-- User registration (`SignUp.aspx`) with encrypted password (SHA1).  
-- Authentication (`Login.aspx`) and access control for `EventosDeportivos.aspx`.  
-- List of upcoming sports events (filterable by sport type).  
-- Protected session: redirects to login page if not authenticated.  
-- User roles (admin and normal).  
-- Modern visual design with animations and a sporty style.
+*Demostración de arquitectura N-Layer, autenticación segura y diseño web moderno en ASP.NET Web Forms.*
