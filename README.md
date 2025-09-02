@@ -109,11 +109,6 @@ SlnAppEventosDeportivos/
 - **Usuario**: `normal` | **Contraseña**: `12345678` | **Rol**: Normal
 - **Usuario**: `Admin` | **Contraseña**: `12345678` | **Rol**: Admin
 
-## 👨‍💻 Desarrollador
-
-**Johan Roberto Mantilla Pancho**  
-*Ingeniería en Software - Escuela Politécnica Nacional*
-
 ---
 
 *Demostración de arquitectura N-Layer, autenticación segura y diseño web moderno en ASP.NET Web Forms.*
